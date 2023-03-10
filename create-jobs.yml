@@ -1,0 +1,6 @@
+#roles has to be the folder and jenkins will be the name of directory under that tasks/main.yml it will run for
+- name: create Jenkins Jobs
+  hosts: localhost
+  connection: local
+  roles:
+    - jenkins
