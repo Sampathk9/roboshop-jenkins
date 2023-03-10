@@ -1,13 +1,13 @@
 # template will search the file and plaxe the file in destination, URL will be url of workstation Private IP address
 - name: Create Config file
   ansible.builtin.template:
-    src: job.xml
-    dest: /tmp/job.xml
+    src: s-job.xml
+    dest: /tmp/s-job.xml
 
-- name: Create job - "{{item.dir}}/{{item.name}}"
+- name: Create job - "{{item.dir}}/{{COMPONENT}}"
   community.general.jenkins_job:
-    config: "{{ lookup('file', '/templates/job.xml') }}"
-    name: "{{item.dir}}/{{item.name}}"
+    config: "{{ lookup('file', '/tmp/s-job.xml') }}"
+    name: "CIPipelines/{{COMPONENT}}"
     url: http://172.31.3.24:8080
     user : admin
     password: "{{jenkins_password}}"
@@ -16,12 +16,12 @@
 
 #- name: Create Config file
 #  ansible.builtin.template:
-#    src: job.xml
-#    dest: /tmp/job.xml
+#    src: s-job.xml
+#    dest: /tmp/s-job.xml
 #
 #- name: Create
 #  community.general.jenkins_job:
-#    config: "{{ lookup('file', '/tmp/job.xml') }}"
+#    config: "{{ lookup('file', '/tmp/s-job.xml') }}"
 #    name: "{{item.dir}}"
 #    url: http://172.31.3.24:8080
 #    user : admin
