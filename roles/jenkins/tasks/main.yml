@@ -2,5 +2,3 @@
   ansible.builtin.include_tasks: pipeline.yml
   loop:
     - {name: "frontend", dir: "CIPipeline"}
-  vars:
-    TEMPLATE: job.xml
