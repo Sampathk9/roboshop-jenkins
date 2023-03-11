@@ -9,7 +9,7 @@
 
 
 - name: Create Pipeline Jobs
-  ansible.builtin.include_tasks: pipeline.yml
+  ansible.builtin.include_tasks: sbranch-pipeline.yml
   vars:
     COMPONENT: "{{item}}"
 #    DIR: "{{item.dir}}"
